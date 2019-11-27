@@ -8,21 +8,24 @@ namespace PasswordStrenghVerification
 {
     class NormalVerifierContruct : IVerifyConstructor
     {
-        IVerifyCharacter digit = new VerifyDigitCharacters();
-        IVerifyCharacter special = new VerifySpecialCharacters();
-        IVerifyCharacter lowerUpper = new VerifyLowerUpperCharacters();
+        IVerifyCharacterOnPassword digit = new VerifyDigitCharactersOnPassword();
+        IVerifyCharacterOnPassword special = new VerifySpecialCharactersOnPassword();
+        IVerifyCharacterOnPassword lowerUpper = new VerifyLowerUpperCharactersOnPassword();
 
         public bool contructVerify(string password)
         {
-            string digitResult = digit.CharactersOnPassword(password);
-            string specialResult = special.CharactersOnPassword(password);
-            string lowerUpperResult = lowerUpper.CharactersOnPassword(password);
+            bool digitResult = digit.CharactersOnPassword(password);
+            bool specialResult = special.CharactersOnPassword(password);
+            bool lowerUpperResult = lowerUpper.CharactersOnPassword(password);
 
-            if (digitResult != "" && specialResult != "")
+            digit.Next(special);
+            special.Next(lowerUpper);
+
+            if (digitResult != false && specialResult != false)
             {
                 return true;
             }
-            else if (digitResult != "" && lowerUpperResult != "")
+            else if (digitResult != false && lowerUpperResult != false)
             {
                 return true;
             }

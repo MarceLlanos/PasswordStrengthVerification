@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    interface IVerifyCharacter
+    interface IVerifyCharacterOnPassword
     {
-        string CharactersOnPassword(string password);
-        void Next(IVerifyCharacter next);
+        bool CharactersOnPassword(string password);
+        void Next(IVerifyCharacterOnPassword next);
     }
 }
