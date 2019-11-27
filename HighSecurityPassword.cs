@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    class HightSecurityPassword : ILevelSecurityPassword
+    class HighSecurityPassword : ILevelSecurityPassword
     {
         ILevelSecurityPassword nextLevel;
        
         
-        public bool LevelSecurity(string password)
+        public bool IsAtSecureLevel(string password)
         {
             if (password.Length >= 20)
             {
+                nextLevel = null;
                 return  true;
+            }
+            if (nextLevel != null)
+            {
+                return nextLevel.IsAtSecureLevel(password);
             }
 
             return false;

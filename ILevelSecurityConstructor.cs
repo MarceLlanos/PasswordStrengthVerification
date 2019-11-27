@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    class LowSecurity
+    interface ILevelSecurityConstructor
     {
+        string ConstructLevelSecurity(string password);
     }
 }

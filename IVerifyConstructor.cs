@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    interface ILevelSecurityPassword
+    interface IVerifyConstructor
     {
-        bool IsAtSecureLevel(string password);
-        
-        void NextLevel(ILevelSecurityPassword nextLevel);
+        bool contructVerify(string password);
     }
 }
