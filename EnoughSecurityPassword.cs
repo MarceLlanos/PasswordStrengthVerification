@@ -9,14 +9,17 @@ namespace PasswordStrenghVerification
     class EnoughSecurityPassword : ILevelSecurityPassword
     {
         ILevelSecurityPassword nextLevel;
-        IVerifyConstructor verifyConstructor = new EnoughVerifierConstruct();
+               
+
         public bool IsAtSecureLevel(string password)
         {
-            
+            var verifier = new ListVeriferCharacters();
+            bool result = false;
             int lenghtPassword = password.Length;
+            
             if (lenghtPassword >= 15 && lenghtPassword < 20 )
-            {                
-                return verifyConstructor.contructVerify(password);
+            {
+                result = verifier.VerifierList(password).Length == 1? true: false;
             }
             if (nextLevel!= null)
             {

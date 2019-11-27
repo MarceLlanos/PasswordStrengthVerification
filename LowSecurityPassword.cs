@@ -9,14 +9,16 @@ namespace PasswordStrenghVerification
     class LowSecurityPassword : ILevelSecurityPassword
     {
         ILevelSecurityPassword next;
-        IVerifyConstructor verifyResult = new LowVerifierConstruct();
 
         public bool IsAtSecureLevel(string password)
         {
+            var verifier = new ListVeriferCharacters();
+            bool result = false;
             int lenghtPassword = password.Length;
+
             if (lenghtPassword >= 6 && lenghtPassword < 10)
             {
-                return verifyResult.contructVerify(password);
+                result = verifier.VerifierList(password).Length == 3? true: false;
             }
             return false;
         }

@@ -9,13 +9,17 @@ namespace PasswordStrenghVerification
     class NormalSecurityPassword : ILevelSecurityPassword
     {
         ILevelSecurityPassword next;
-        IVerifyConstructor resultVerify = new NormalVerifierContruct();
+
         public bool IsAtSecureLevel(string password)
         {
+            var verifier = new ListVeriferCharacters();
+            bool result = false;
             int lenghtPassword = password.Length;
+
             if (lenghtPassword >=10 && lenghtPassword < 15)
             {
-                return resultVerify.contructVerify(password);
+                result = verifier.VerifierList(password).Length == 2 ? true : false;
+
             }
             if (next != null)
             {                

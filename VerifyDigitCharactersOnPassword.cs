@@ -13,12 +13,9 @@ namespace PasswordStrenghVerification
         {
             string digitCharacter = new DigitCharacter().GetCharacter();
 
-            for (int i = 0; i < 33 ; i++)
+            for (int i = 0; i < password.Length ; i++)
             {
-                if (password[i] == digitCharacter[i])
-                {
-                    return true;
-                }
+                digitCharacter.Contains(password[i]);
             }
             if (next != null)
             {

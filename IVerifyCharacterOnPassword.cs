@@ -9,6 +9,5 @@ namespace PasswordStrenghVerification
     interface IVerifyCharacterOnPassword
     {
         bool CharactersOnPassword(string password);
-        void Next(IVerifyCharacterOnPassword next);
     }
 }
