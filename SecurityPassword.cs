@@ -22,18 +22,18 @@ namespace PasswordStrenghVerification
 
         public bool IsAtSecureLevel(string password)
         {
-            
+
             var verifier = new CompositeCharactersVerifer();
             bool result = false;
             int lenghtPassword = password.Length;
 
-            if (lenghtPassword >=range.GetMin()  && lenghtPassword < range.GetMax())
+            if (lenghtPassword >= range.GetMin() && lenghtPassword < range.GetMax())
             {
-                result = verifier.CharactersOnPassword(password) == lengthVerificationsMax ? true : false;
+                result = verifier.CharactersOnPassword(password) >= lengthVerificationsMax ? true : false;
             }
-            if(next!= null)
+            else if (next != null)
             {
-                next.IsAtSecureLevel(password);
+                result = next.IsAtSecureLevel(password);
             }
             return result;
         }

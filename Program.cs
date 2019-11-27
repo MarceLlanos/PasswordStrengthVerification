@@ -16,6 +16,7 @@ namespace PasswordStrenghVerification
             Console.WriteLine("Verify a password:");
             string password = Console.ReadLine();
             Console.WriteLine("Result of verify:");
+
             Console.WriteLine(displayMessage.DisplayMessageAboutSecurityPassword(password)); 
             Console.ReadKey();
         }

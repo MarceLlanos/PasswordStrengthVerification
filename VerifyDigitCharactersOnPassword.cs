@@ -13,6 +13,7 @@ namespace PasswordStrenghVerification
         {
             string digitCharacter = new DigitCharacter().GetCharacter();
             int result = 0;
+
             foreach (var item in password)
             {
                 if (digitCharacter.Contains(item))

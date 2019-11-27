@@ -12,9 +12,10 @@ namespace PasswordStrenghVerification
         public CompositeCharactersVerifer()
         {
             list = new List<IVerifyCharacterOnPassword>();
+            AddVerifierList();
         }
 
-        public void AddVerifierList(string password)
+        public void AddVerifierList()
         {
 
             list.Add(new VerifyDigitCharactersOnPassword());
@@ -26,10 +27,12 @@ namespace PasswordStrenghVerification
         public int CharactersOnPassword(string password)
         {
             int result = 0;
+
             foreach (var item in list)
             {
-                result = item.CharactersOnPassword(password) == 1? result += 1: result = 0;
+                result += item.CharactersOnPassword(password);
             }
+
             return result;
         }
 
