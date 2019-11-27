@@ -8,8 +8,7 @@ namespace PasswordStrenghVerification
 {
     class SecurityPassword : ISecurityPassword
     {
-        int minRange;
-        int maxRange;
+        
         Range range;
         int lengthVerificationsMax;
 
@@ -28,7 +27,7 @@ namespace PasswordStrenghVerification
 
             if (lenghtPassword >=range.GetMin()  && lenghtPassword < range.GetMax())
             {
-                result = verifier.VerifierList(password) == lengthVerificationsMax ? true : false;
+                result = verifier.CharactersOnPassword(password) == lengthVerificationsMax ? true : false;
             }
             return result;
         }

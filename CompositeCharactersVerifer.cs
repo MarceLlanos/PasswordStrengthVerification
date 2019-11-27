@@ -6,25 +6,35 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    class CompositeCharactersVerifer
+    class CompositeCharactersVerifer:IVerifyCharacterOnPassword
     {
         List<IVerifyCharacterOnPassword> list;
+        int countTrue;
         public CompositeCharactersVerifer()
         {
             list = new List<IVerifyCharacterOnPassword>();
+            countTrue = 0;
         }
-        public int VerifierList(string password)
+
+        public void AddVerifierList(string password)
+        {
+
+            list.Add(new VerifyDigitCharactersOnPassword());
+            list.Add(new VerifySpecialCharactersOnPassword());
+            list.Add(new VerifyLowerUpperCharactersOnPassword());
+            
+        }
+
+        public int CharactersOnPassword(string password)
         {
             int result = 0;
-
-            list.Add(new VerifyDigitCharactersOnPassword() );
-            list.Add(new VerifySpecialCharactersOnPassword());
-            list.Add(new VerifyLowerUpperCharactersOnPassword() );
-            if (list.Equals(true))
+            foreach (var item in list)
             {
-                result +=1;
+                result = item.CharactersOnPassword(password) == 1? result += 1: result = 0;
             }
             return result;
         }
+
+       
     }
 }

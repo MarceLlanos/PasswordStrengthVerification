@@ -8,6 +8,6 @@ namespace PasswordStrenghVerification
 {
     interface IVerifyCharacterOnPassword
     {
-        bool CharactersOnPassword(string password);
+        int CharactersOnPassword(string password);
     }
 }

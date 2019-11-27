@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    interface ISecurityConstructor
+    interface IConstructorSecurity
     {
         SecurityPassword SecurityConstruct();
     }
