@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    interface ILevelSecurityConstructor
+    interface ISecurityPassword
     {
-        string ConstructLevelSecurity(string password);
+        bool IsAtSecureLevel(string password);
+        
     }
 }

@@ -10,11 +10,13 @@ namespace PasswordStrenghVerification
     {
         static void Main(string[] args)
         {
-            ILevelSecurityConstructor passwordSecurity = new LevelSecurityConstructor();
+            DisplayerMessageAboutSecurityPassword displayMessage = new DisplayerMessageAboutSecurityPassword();
+           
 
-            Console.WriteLine("Input a password:");
+            Console.WriteLine("Verify a password:");
             string password = Console.ReadLine();
-            Console.WriteLine(passwordSecurity.ConstructLevelSecurity(password));
+            Console.WriteLine("Result of verify:");
+            Console.WriteLine(displayMessage.DisplayMessageAboutSecurityPassword(password)); 
             Console.ReadKey();
         }
     }

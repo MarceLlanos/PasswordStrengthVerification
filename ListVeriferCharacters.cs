@@ -8,17 +8,17 @@ namespace PasswordStrenghVerification
 {
     class ListVeriferCharacters
     {
-        public string VerifierList(string password)
+        public int VerifierList(string password)
         {
             List<bool> list = new List<bool>();
-            string result = string.Empty;
+            int result = 0;
 
             list.Add(new VerifyDigitCharactersOnPassword().CharactersOnPassword(password) );
             list.Add(new VerifySpecialCharactersOnPassword().CharactersOnPassword(password) );
             list.Add(new VerifyLowerUpperCharactersOnPassword().CharactersOnPassword(password) );
             if (list.Equals(true))
             {
-                result += "d";
+                result +=1;
             }
             return result;
         }
