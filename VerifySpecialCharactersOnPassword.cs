@@ -8,18 +8,17 @@ namespace PasswordStrenghVerification
 {
     class VerifySpecialCharactersOnPassword: IVerifyCharacterOnPassword
     {
-        List<IVerifyCharacterOnPassword> verifyCharacterOnPasswords = new List<IVerifyCharacterOnPassword>();
-
         public bool CharactersOnPassword(string password)
         {
             string specialCharacter = new SpecialCharacter().GetCharacter();
+            bool result = false;
 
             for (int i = 0; i < password.Length; i++)
             {
-                specialCharacter.Contains(password[i]);
+                result = specialCharacter.Contains(password[i])?  result = true: result = false ;
             }
 
-            return false;
+            return result;
         }
     }
 }

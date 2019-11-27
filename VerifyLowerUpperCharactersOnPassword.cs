@@ -8,28 +8,16 @@ namespace PasswordStrenghVerification
 {
     class VerifyLowerUpperCharactersOnPassword: IVerifyCharacterOnPassword
     {
-        IVerifyCharacterOnPassword next;
         public bool CharactersOnPassword(string password)
         {
             string lowerUpperCharacter = new LowerUpperCharacter().GetCharacter();
+            bool result = false;
 
             for (int i = 0; i < password.Length; i++)
             {
-                lowerUpperCharacter.Contains(password[i]);
-
+                result = lowerUpperCharacter.Contains(password[i]) ? result = true : result = false;
             }
-            if (next != null)
-            {
-                next.CharactersOnPassword(password);
-            }
-
-
-            return false;
-        }
-
-        public void Next(IVerifyCharacterOnPassword next)
-        {
-            this.next = next;
+            return result;
         }
     }
 }

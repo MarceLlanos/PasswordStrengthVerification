@@ -22,7 +22,7 @@ namespace PasswordStrenghVerification
 
         public bool IsAtSecureLevel(string password)
         {
-            var verifier = new ListVeriferCharacters();
+            var verifier = new CompositeCharactersVerifer();
             bool result = false;
             int lenghtPassword = password.Length;
 

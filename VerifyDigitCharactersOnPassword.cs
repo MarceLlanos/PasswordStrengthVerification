@@ -8,27 +8,17 @@ namespace PasswordStrenghVerification
 {
     class VerifyDigitCharactersOnPassword : IVerifyCharacterOnPassword
     {
-        IVerifyCharacterOnPassword next;
+
         public bool CharactersOnPassword(string password)
         {
             string digitCharacter = new DigitCharacter().GetCharacter();
-
+            bool result = false;
             for (int i = 0; i < password.Length ; i++)
             {
-                digitCharacter.Contains(password[i]);
+                result = digitCharacter.Contains(password[i])?  result = true: result = false ;
             }
-            if (next != null)
-            {
-                next.CharactersOnPassword(password);
-            }
-              
-
-            return false;
+            return result;
         }
-
-        public void Next(IVerifyCharacterOnPassword next)
-        {
-            this.next = next;
-        }
+        
     }
 }
