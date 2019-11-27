@@ -13,9 +13,12 @@ namespace PasswordStrenghVerification
             string lowerUpperCharacter = new LowerUpperCharacter().GetCharacter();
             int result = 0;
 
-            for (int i = 0; i < password.Length; i++)
+            foreach (var item in password)
             {
-                result = lowerUpperCharacter.Contains(password) ? result = 1 : result = 0;
+                if (lowerUpperCharacter.Contains(item))
+                {
+                    return result = 1;
+                }
             }
             return result;
         }

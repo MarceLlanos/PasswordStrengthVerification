@@ -11,26 +11,23 @@ namespace PasswordStrenghVerification
        
         public SecurityPassword SecurityConstruct()
         {
-            Range range = new Range(0,0);
-            Range rangeHighSecurity = new Range(20, 50);
-            Range rangeEnoughSecurity = new Range(15, 20);
-            Range rangeNormalSecurity = new Range(10, 15);
-            Range rangeLowSecurity = new Range(6, 10);
+            var rangeHighSecurity = new Range(20, 50);
+            var rangeEnoughSecurity = new Range(15, 20);
+            var rangeNormalSecurity = new Range(10, 15);
+            var rangeLowSecurity = new Range(6, 10);
 
-            switch (range.GetMin())
-            {
-                case 20:
-                    return new SecurityPassword(rangeHighSecurity, 0);
-                case 15: 
-                    return new SecurityPassword(rangeEnoughSecurity, 1);
-                case 10:
-                    return new SecurityPassword(rangeNormalSecurity, 2);
-                case 6:
-                    return new SecurityPassword(rangeLowSecurity, 3);
-                default:
-                    return new SecurityPassword(rangeLowSecurity, 3);
+           
+            var highSecurity = new SecurityPassword(rangeHighSecurity, 0);
+            var enoughSecurity = new SecurityPassword(rangeEnoughSecurity, 1);
+            var normlaSecurity = new SecurityPassword(rangeNormalSecurity, 2);
+            var lowSecurity= new SecurityPassword(rangeLowSecurity, 3);
 
-            }
+            highSecurity.Next(enoughSecurity);
+            enoughSecurity.Next(normlaSecurity);
+            normlaSecurity.Next(lowSecurity);
+
+            return highSecurity;
+
         }
     }
 }

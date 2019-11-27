@@ -9,11 +9,9 @@ namespace PasswordStrenghVerification
     class CompositeCharactersVerifer:IVerifyCharacterOnPassword
     {
         List<IVerifyCharacterOnPassword> list;
-        int countTrue;
         public CompositeCharactersVerifer()
         {
             list = new List<IVerifyCharacterOnPassword>();
-            countTrue = 0;
         }
 
         public void AddVerifierList(string password)

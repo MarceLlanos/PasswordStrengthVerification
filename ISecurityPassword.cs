@@ -9,6 +9,6 @@ namespace PasswordStrenghVerification
     interface ISecurityPassword
     {
         bool IsAtSecureLevel(string password);
-        
+        void Next(SecurityPassword next);
     }
 }

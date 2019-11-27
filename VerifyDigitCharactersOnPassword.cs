@@ -13,10 +13,15 @@ namespace PasswordStrenghVerification
         {
             string digitCharacter = new DigitCharacter().GetCharacter();
             int result = 0;
-            for (int i = 0; i < password.Length ; i++)
+            foreach (var item in password)
             {
-                result = digitCharacter.Contains(password[i])?  result = 1: result = 0 ;
+                if (digitCharacter.Contains(item))
+                {
+                    return result = 1;
+                }
+
             }
+
             return result;
         }
         

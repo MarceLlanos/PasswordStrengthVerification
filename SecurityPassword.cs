@@ -11,6 +11,7 @@ namespace PasswordStrenghVerification
         
         Range range;
         int lengthVerificationsMax;
+        SecurityPassword next;
 
         public SecurityPassword(Range range, int lengthVerificationsMax)
         {
@@ -21,6 +22,7 @@ namespace PasswordStrenghVerification
 
         public bool IsAtSecureLevel(string password)
         {
+            
             var verifier = new CompositeCharactersVerifer();
             bool result = false;
             int lenghtPassword = password.Length;
@@ -29,7 +31,16 @@ namespace PasswordStrenghVerification
             {
                 result = verifier.CharactersOnPassword(password) == lengthVerificationsMax ? true : false;
             }
+            if(next!= null)
+            {
+                next.IsAtSecureLevel(password);
+            }
             return result;
+        }
+
+        public void Next(SecurityPassword next)
+        {
+            this.next = next;
         }
     }
 }

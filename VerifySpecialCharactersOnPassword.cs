@@ -12,10 +12,12 @@ namespace PasswordStrenghVerification
         {
             string specialCharacter = new SpecialCharacter().GetCharacter();
             int result = 0;
-
-            for (int i = 0; i < password.Length; i++)
+            foreach (var item in password)
             {
-                result = specialCharacter.Contains(password[i])?  result = 1: result = 0 ;
+                if (specialCharacter.Contains(item))
+                {
+                    return result = 1;
+                }
             }
 
             return result;

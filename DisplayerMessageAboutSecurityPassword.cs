@@ -10,7 +10,7 @@ namespace PasswordStrenghVerification
     {
         public string DisplayMessageAboutSecurityPassword(string password)
         {
-            IConstructorSecurity passwordSecurity = new ConstructorSecurity();
+            var passwordSecurity = new ConstructorSecurity();
             
 
             if (passwordSecurity.SecurityConstruct().IsAtSecureLevel(password))

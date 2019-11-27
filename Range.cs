@@ -11,13 +11,18 @@ namespace PasswordStrenghVerification
         int max;
         int min;
 
-        public Range(int min, int max)
+        public  Range(int min, int max)
         {
             this.max = max;
             this.min = min;
         }
 
-        public int GetMin()
+        public void SetRange(int min, int max)
+        {
+            this.max = max;
+            this.min = min;
+        }
+    public int GetMin()
         {
             return min;
         }
