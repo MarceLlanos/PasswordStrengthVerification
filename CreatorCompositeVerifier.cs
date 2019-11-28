@@ -14,15 +14,13 @@ namespace PasswordStrenghVerification
 
             var digitCharacter = new DigitCharacter().GetCharacter();
             var specialCharacter = new SpecialCharacter().GetCharacter();
-            var lowerAndUpperCharacter = new LowerAndUpperCharacters().GetCharacter();
-            // var digitCharacter = new DigitCharacter();
+            var lowerCharacter = new LowerCharacter().GetCharacter();
+            var upperCharacter = new UpperCharacter().GetCharacter();
+            var lowerUpper = lowerCharacter + upperCharacter;
 
             listCreator.Add(new VerifyCharacterOnPassword(digitCharacter));
             listCreator.Add(new VerifyCharacterOnPassword(specialCharacter));
-            listCreator.Add(new VerifyCharacterOnPassword(lowerAndUpperCharacter));
-
-            // var digitVerify = new VerifyCharacterOnPassword(digitCharacter);
-
+            listCreator.Add(new VerifyCharacterOnPassword(lowerUpper));
             
             return listCreator;
         }

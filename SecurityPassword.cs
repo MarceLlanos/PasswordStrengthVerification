@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PasswordStrenghVerification
+﻿namespace PasswordStrenghVerification
 {
     class SecurityPassword : ISecurityPassword
-    {
-        
+    {        
         Range range;
         int lengthVerificationsMax;
         SecurityPassword next;
@@ -18,7 +11,6 @@ namespace PasswordStrenghVerification
             this.range = range;
             this.lengthVerificationsMax = lengthVerificationsMax;
         }
-
 
         public bool IsAtSecureLevel(string password)
         {
