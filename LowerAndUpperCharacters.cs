@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    class LowerUpperCharacter : ICharacteres
+    class LowerAndUpperCharacters : ICharacteres
     {
         public string GetCharacter()
         {
-            return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            var lower = new LowerCharacter().GetCharacter();
+            var upper = new UpperCharacter().GetCharacter();
+            return lower + upper;
         }
     }
 }

@@ -6,25 +6,32 @@ using System.Threading.Tasks;
 
 namespace PasswordStrenghVerification
 {
-    class VerifyDigitCharactersOnPassword : IVerifyCharacterOnPassword
+    class VerifyCharacterOnPassword : IVerifyCharacterOnPassword
     {
+        string character;
 
+
+        public VerifyCharacterOnPassword(string character)
+        {
+            this.character = character;
+        }
         public int CharactersOnPassword(string password)
         {
-            string digitCharacter = new DigitCharacter().GetCharacter();
             int result = 0;
 
             foreach (var item in password)
             {
-                if (digitCharacter.Contains(item))
+                if (character.Contains(item))
                 {
                     return result = 1;
                 }
+                
 
             }
 
             return result;
         }
+
         
     }
 }

@@ -8,27 +8,21 @@ namespace PasswordStrenghVerification
 {
     class CompositeCharactersVerifer:IVerifyCharacterOnPassword
     {
-        List<IVerifyCharacterOnPassword> list;
+        ICreatorCompositeVerifier listCreator;
+
         public CompositeCharactersVerifer()
         {
-            list = new List<IVerifyCharacterOnPassword>();
-            AddVerifierList();
+            listCreator = new CreatorCompositeVerifier();
+           
         }
 
-        public void AddVerifierList()
-        {
-
-            list.Add(new VerifyDigitCharactersOnPassword());
-            list.Add(new VerifySpecialCharactersOnPassword());
-            list.Add(new VerifyLowerUpperCharactersOnPassword());
-            
-        }
 
         public int CharactersOnPassword(string password)
         {
             int result = 0;
+            var listCreatorVerifier = listCreator.CreateVerifier();
 
-            foreach (var item in list)
+            foreach (var item in listCreatorVerifier)
             {
                 result += item.CharactersOnPassword(password);
             }
